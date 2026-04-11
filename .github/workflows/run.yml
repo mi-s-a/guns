@@ -1,4 +1,4 @@
-name: sniper.lol word checker
+name: sniper.lol 2c checker
 
 on:
   workflow_dispatch:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      MODE: wordlist
+      MODE: 2c
       AMOUNT: 5000
       WORDLIST: newwords.txt
       PAGES: 3

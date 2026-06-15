@@ -16,7 +16,7 @@ WEBHOOK_TAKEN = os.getenv("WEBHOOK_TAKEN")
 WEBHOOK_BANNED = os.getenv("WEBHOOK_BANNED")
 WEBHOOK_RATE = os.getenv("WEBHOOK_RATE")
 
-MODE = os.getenv("MODE", "wordlist")
+MODE = os.getenv("MODE", "1c")
 WORDLIST = os.getenv("WORDLIST", "words.txt")
 AMOUNT = int(os.getenv("AMOUNT", "5000"))
 CONCURRENCY = int(os.getenv("PAGES", "5"))
@@ -140,7 +140,13 @@ async def send_summary(url, title, names, color):
 
 # -------- MAIN -------- #
 async def main():
-    if MODE == "2c":
+    if MODE == "1c":
+        usernames = [
+            "".join(random.choice(CHARS) for _ in range(1))
+            for _ in range(AMOUNT)
+        ]
+    
+    elif MODE == "2c":
         usernames = [
             "".join(random.choice(CHARS) for _ in range(2))
             for _ in range(AMOUNT)
